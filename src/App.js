@@ -64,6 +64,17 @@ function App() {
 
   }
 
+  async function deleteMoviesHandler(key) {
+    //console.log(movie);
+    const response =await fetch('https://reacthttp-37efe-default-rtdb.firebaseio.com/movies.json/key',{
+      method:'DELETE',
+      
+    });
+    
+    console.log('deleted');
+
+  }
+
   let content = <p>Found no movies.</p>;
 
   if (movies.length > 0) {
@@ -86,6 +97,7 @@ function App() {
       <section>
         <button onClick={fetchMoviesHandler}>Fetch Movies</button>
       </section>
+      
       <section>{content}</section>
     </React.Fragment>
   );

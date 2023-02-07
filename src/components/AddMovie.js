@@ -6,6 +6,7 @@ function AddMovie(props) {
   const titleRef = useRef('');
   const openingTextRef = useRef('');
   const releaseDateRef = useRef('');
+  const idRef = useRef('');
 
   function submitHandler(event) {
     event.preventDefault();
@@ -16,9 +17,11 @@ function AddMovie(props) {
       title: titleRef.current.value,
       openingText: openingTextRef.current.value,
       releaseDate: releaseDateRef.current.value,
+      
     };
 
     props.onAddMovie(movie);
+    
   }
 
   return (
@@ -35,6 +38,7 @@ function AddMovie(props) {
         <label htmlFor='date'>Release Date</label>
         <input type='text' id='date' ref={releaseDateRef} />
       </div>
+      
       <button>Add Movie</button>
     </form>
   );
